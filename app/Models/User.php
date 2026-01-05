@@ -29,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user_type',
     ];
 
     /**
@@ -63,5 +64,37 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * Check if user is a vendor.
+     */
+    public function isVendor(): bool
+    {
+        return $this->user_type === 'vendor';
+    }
+
+    /**
+     * Check if user is a customer.
+     */
+    public function isCustomer(): bool
+    {
+        return $this->user_type === 'customer';
+    }
+
+    /**
+     * Get the vendor profile associated with the user.
+     */
+    public function vendor()
+    {
+        return $this->hasOne(\App\Models\Vendor::class);
+    }
+
+    /**
+     * Get orders placed by this user (as customer).
+     */
+    public function orders()
+    {
+        return $this->hasMany(\App\Models\Order::class, 'customer_id');
     }
 }
