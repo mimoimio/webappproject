@@ -15,7 +15,7 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <!-- Menu Items -->
-            <div class="lg:col-span-2">
+            <div class="lg:col-span-2 pb-96 lg:pb-0">
                 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">Menu</h3>
@@ -62,7 +62,8 @@
 
             <!-- Cart -->
             <div class="lg:col-span-1">
-                <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-6 sticky top-6">
+                <div
+                    class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg p-6 fixed lg:sticky bottom-0 lg:top-6 left-0 right-0 lg:left-auto lg:right-auto max-h-80 lg:max-h-none overflow-y-auto z-50">
                     <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-4">Cart</h3>
 
                     @if (session()->has('error'))
